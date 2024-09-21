@@ -5,5 +5,8 @@ Iot integrado a funções no Minecraft
 
 # Configurações
 Minecraft Iot utiliza um Mod para conectar aos inputs do Minecraft com um servidor local.
+
 Para o devido funcionamento é necessário baixar o Mod: https://github.com/cc-tweaked/CC-Tweaked .
+
 Será necessário rodar o servidor em Python neste repositório e configurar o HIVEMQ com suas informações.
+
