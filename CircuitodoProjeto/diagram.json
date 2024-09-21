@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -182.4,
+      "left": -148.76,
+      "attrs": {}
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -211, "left": 355.2, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay2", "top": -124.6, "left": 364.8, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay3", "top": -47.8, "left": 364.8, "attrs": {} },
+    { "type": "wokwi-7segment", "id": "sevseg1", "top": -110.22, "left": -311.72, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 23.15,
+      "left": -268.8,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 137.6,
+      "left": -95.2,
+      "attrs": {}
+    },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp1",
+      "top": -163.2,
+      "left": 110.44,
+      "attrs": {}
+    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -702.8, "left": -4, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 246.2,
+      "left": 249.6,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 371,
+      "left": 278.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 301.55,
+      "left": 144,
+      "attrs": { "value": "200" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 378.35,
+      "left": 134.4,
+      "attrs": { "value": "200" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "relay2:VCC", "relay1:VCC", "red", [ "h-48", "v-86.4" ] ],
+    [ "relay2:VCC", "relay3:VCC", "red", [ "h-48", "v67.2" ] ],
+    [ "relay1:IN", "esp1:2", "green", [ "h-96", "v172.6" ] ],
+    [ "relay2:IN", "esp1:15", "green", [ "h-86.4", "v105.4" ] ],
+    [ "relay2:VCC", "esp1:3V3", "red", [ "h-124.8", "v-105.6", "h-144", "v67.2" ] ],
+    [ "relay3:IN", "esp1:4", "green", [ "h-76.8", "v-19.4" ] ],
+    [ "relay3:GND", "esp1:GND.2", "black", [ "h-67.2", "v-29.2" ] ],
+    [ "relay2:GND", "relay3:GND", "black", [ "h-67.2", "v47.6" ] ],
+    [ "relay1:GND", "relay2:GND", "black", [ "h-57.6", "v86" ] ],
+    [ "sevseg1:B", "esp:35", "green", [ "v0" ] ],
+    [ "sevseg1:C", "esp:14", "green", [ "v0" ] ],
+    [ "sevseg1:A", "esp:13", "green", [ "v-37.56", "h96", "v124.8" ] ],
+    [ "sevseg1:D", "esp:27", "green", [ "v38.4", "h105.6", "v-57.6" ] ],
+    [ "sevseg1:E", "esp:26", "green", [ "v19.2", "h96", "v-57.6" ] ],
+    [ "sevseg1:F", "esp:25", "green", [ "v-66.36", "h67.2", "v96", "h28.8" ] ],
+    [ "sevseg1:G", "esp:33", "green", [ "v-18.36", "h105.6", "v38.4" ] ],
+    [ "sevseg1:COM.1", "r1:1", "green", [ "h0", "v67.2" ] ],
+    [ "r1:2", "esp:3V3", "green", [ "v0" ] ],
+    [ "sevseg1:COM.2", "r1:1", "green", [ "h0", "v-47.16", "h-38.4", "v182.4" ] ],
+    [ "keypad1:R1", "esp1:13", "green", [ "v105.6", "h-19.2", "v259.2" ] ],
+    [ "keypad1:R2", "esp1:35", "green", [ "v38.4", "h-48.4", "v307.2" ] ],
+    [ "keypad1:R3", "esp1:14", "green", [ "v76.8", "h-77.1", "v9.6" ] ],
+    [ "keypad1:R4", "esp1:27", "green", [ "v48", "h-115.4", "v28.8" ] ],
+    [ "keypad1:C1", "esp1:26", "green", [ "v86.4", "h-115.3", "v9.6" ] ],
+    [ "keypad1:C2", "esp1:25", "green", [ "v105.6", "h-115.2", "v19.2" ] ],
+    [ "keypad1:C3", "esp1:33", "green", [ "v115.2", "h-163.35", "v76.8" ] ],
+    [ "ldr1:GND", "esp1:GND.2", "black", [ "h153.6", "v-298" ] ],
+    [ "ldr1:VCC", "esp1:3V3", "red", [ "h19.2", "v-288" ] ],
+    [ "ldr1:AO", "esp1:34", "green", [ "h9.6", "v-288.7" ] ],
+    [ "btn1:1.r", "esp1:22", "green", [ "v0", "h19.4", "v-67.2" ] ],
+    [ "btn3:1.r", "esp1:23", "green", [ "h19.4", "v-336" ] ],
+    [ "btn1:2.l", "r2:2", "green", [ "h0" ] ],
+    [ "btn3:2.l", "r3:2", "green", [ "h0" ] ],
+    [ "esp1:GND.2", "r2:1", "black", [ "v-9.6", "h38.4", "v374.4", "h-144", "v67.2" ] ],
+    [ "esp1:GND.2", "r3:1", "black", [ "v-28.8", "h38.4", "v364.8", "h-153.6", "v182.4" ] ]
+  ],
+  "dependencies": {}
+}

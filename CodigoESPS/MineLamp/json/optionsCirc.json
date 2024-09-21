@@ -1,0 +1,7 @@
+{
+    "host": "",
+    "port": 8883,
+    "protocol": "mqtts",
+    "username": "",
+    "password": ""
+}
